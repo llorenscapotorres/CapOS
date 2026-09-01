@@ -10,6 +10,12 @@ The goal is to create an intentionally absurd operating system while learning ho
 
 The project aims to avoid relying on existing operating systems, machine learning frameworks, or numerical libraries.
 
+## How to execute?
+
+Very easy, just `bash CapOS.sh`.
+
+You must be in a Linux environment (Debian, Ubuntu, WSL...)
+
 ## The Goal
 
 The final objective of CapOS is to implement and train a **binary neural network directly inside the operating system**.
