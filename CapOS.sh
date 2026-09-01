@@ -1,14 +1,16 @@
 #!/bin/bash
 set -e
 
-# Verify if nasm and qemu are installed
+# Solo instalar si falta algo
 if ! command -v nasm &> /dev/null || ! command -v qemu-system-i386 &> /dev/null; then
     echo "Instalando dependencias..."
     make install-deps
+else
+    echo "Bless God!"
 fi
 
 # Execute OS
 
-make 
+make --no-print-directory -s
 
-qemu-system-i386 -fda build/bootable_floppy.img -boot a
+qemu-system-i386 -drive file=build/bootable_floppy.img,if=floppy,format=raw -boot a
