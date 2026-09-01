@@ -1,8 +1,15 @@
 # Compiler settings
 ASM = nasm
 
+# Directory settings
 SRC_DIR = src
 BUILD_DIR = build
+INSTALL_DIR = .install
+
+# Install dependencies
+install-deps:
+	@chmod +x $(INSTALL_DIR)/install-deps.sh
+	@./$(INSTALL_DIR)/install-deps.sh
 
 # Create floppy disk image (1.44 MB) containing the bootloader
 # This simulates a physical 3.5" floppy disk for emulation
