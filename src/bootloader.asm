@@ -86,7 +86,7 @@ bootloader:
 	; jumps to given location, unconditionally
 	jmp .halt
 
-msg_hello: db 'Hello world from CapOS!', ENDL, 0
+msg_hello: db 'Saluton Mondo de CapOS en Esperanto!', ENDL, 0
 
 ; repeats given instruction or piece of data a number of times
 ; $ is an special symbol which is equal to the memory offset of the current line
