@@ -2,7 +2,7 @@
 set -e
 
 if command -v apt-get $> /dev/null; then
-	sudo apt-get update && sudo apt-get install -y nasm qemu-system-i386
+	sudo apt-get update && sudo apt-get install -y nasm qemu-system-x86
 elif command -v dnf &> /dev/null; then
     sudo dnf install -y nasm qemu-system-x86
 elif command -v pacman &> /dev/null; then
