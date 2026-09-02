@@ -77,7 +77,7 @@ bootloader:
 
 	; print message
 	mov si, msg_hello
-	call print
+	; call print
 
 	; stops CPU from executing (it can be resumed by an interrupt)
 	hlt
