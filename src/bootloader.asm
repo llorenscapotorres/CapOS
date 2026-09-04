@@ -27,15 +27,16 @@ print:
 	push ax
 
 .loop:
-	; these instructions load a byte/word/double-word from DS:SI into AL/AX/EAX
-	; then increment SI by the number of bytes loaded
-	lodsb ; loads next character into AL and increment SI
+	; these instructions load a byte/word/double-word from [ds:si] into AL/AX/EAX
+	; then increment si by the number of bytes loaded
+	lodsb ; loads next character into AL and increment si
+	
 	or al, al ; verfy if next character is NULL (0x00)
 	jz .done ; jumps to destination if zero flag is set (character is NULL)
 
-	mov ah, 0x0E ; call BIOS interrupt
+	mov ah, 0x0E ; Function: teletype print
 	mov bh, 0x00 ; page number
-	int 0x10 ; interrupt command for video
+	int 0x00 ; Call my custom BIOS interrupt
 	
 	jmp .loop ; loop back to load next character
 
@@ -77,7 +78,7 @@ bootloader:
 
 	; print message
 	mov si, msg_hello
-	; call print
+	call print
 
 	; stops CPU from executing (it can be resumed by an interrupt)
 	hlt
