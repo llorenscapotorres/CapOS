@@ -25,7 +25,7 @@ $(BUILD_DIR)/main_disk.img: $(BUILD_DIR)/bootloader.bin
 
 # Compile bootloader assembly to raw binary (no ELF header)
 # -f bin means raw binary format (not object file)
-$(BUILD_DIR)/bootloader.bin: $(BUILD_DIR)/bees.bin
+$(BUILD_DIR)/bootloader.bin: $(SRC_DIR)/bootloader.asm $(BUILD_DIR)/bees.bin
 	@$(ASM) $(SRC_DIR)/bootloader.asm -f bin -o $(BUILD_DIR)/bootloader.bin
 
 # Compile custom BIOS called BEES to raw binary
